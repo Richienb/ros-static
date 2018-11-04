@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ROS Static</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Free, open source static file hosting. Perfect for libraries, images and more.">
+
+    <link rel='stylesheet' href='https://unpkg.com/material-components-web@0.41.0/dist/material-components-web.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css'>
+
+    <style>
+        :root {
+            --mdc-theme-primary: #3f51b5;
+            --mdc-theme-secondary: #f44336;
+            --mdc-theme-on-primary: #ffffff;
+            --mdc-theme-on-secondary: #ffffff;
+        }
+        
+        :root body {
+            background-color: #3f51b5;
+        }
+        
+        :root body main {
+            background-color: #ffffff;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            position: absolute;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            min-width: -webkit-calc(100vw - 80px);
+            min-width: -moz-calc(100vw - 80px);
+            min-width: calc(100vw - 80px);
+            min-height: -webkit-calc(100vh - 80px);
+            min-height: -moz-calc(100vh - 80px);
+            min-height: calc(100vh - 80px);
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main class="mdc-typography">
+        <h1 class="mdc-typography--headline1">
+<svg xmlns="http://www.w3.org/2000/svg" width="6rem" height="6rem" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.29-9.81c-.4-2.01-2.16-3.52-4.29-3.52-1.69 0-3.15.96-3.88 2.36C6.36 9.21 5 10.7 5 12.5 5 14.43 6.57 16 8.5 16h7.58c1.61 0 2.92-1.31 2.92-2.92 0-1.54-1.2-2.79-2.71-2.89zM16 14H8.5c-.83 0-1.5-.67-1.5-1.5S7.67 11 8.5 11h.9l.49-1.05c.41-.79 1.22-1.28 2.11-1.28 1.13 0 2.11.8 2.33 1.91l.28 1.42H16c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg> ROS Static</h1>
+        <p class="mdc-typography--body1">Free, open source static file hosting. Perfect for libraries, images and more.</p>
+        <h4 class="mdc-typography--headline4" id="how-to-contribute">
+<svg xmlns="http://www.w3.org/2000/svg" width="2.125rem" height="2.125rem" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg> How to contribute</h4>
+        <p class="mdc-typography--body1">Simply fork this, create a new branch and upload the file to the public directory. Then create a pull request. To add more than one file, if possible always upload them on seperate branches to prevent conflict.</p>
+        <a target="_blank" rel="noopener" class="mdc-button mdc-button--outlined" data-mdc-auto-init="MDCRipple" href="https://github.com/Richienb/ros-static">View on GitHub</a>
+        <h4 class="mdc-typography--headline4" id="currently-hosted">
+<svg xmlns="http://www.w3.org/2000/svg" width="2.125rem" height="2.125rem" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M13 5v6h1.17L12 13.17 9.83 11H11V5h2m2-2H9v6H5l7 7 7-7h-4V3zm4 15H5v2h14v-2z"/></svg> Currently hosted (top ...)</h4>
+        <ul class="mdc-list mdc-list--two-line" aria-orientation="vertical">
+        </ul>
+    </main>
+    <script async src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js'></script>
+    <script src='https://unpkg.com/material-components-web@0.41.0/dist/material-components-web.min.js'></script>
+
+    <script>
+        $.when(
+            $.getJSON(
+                "https://api.github.com/repos/Richienb/ros-static/contents/public",
+                function(data) {
+                    $("#currently-hosted").html("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" height=\"30\" viewBox=\"0 0 24 24\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"/><path d=\"M13 5v6h1.17L12 13.17 9.83 11H11V5h2m2-2H9v6H5l7 7 7-7h-4V3zm4 15H5v2h14v-2z\"/></svg> Currently hosted (top " +
+
+                        data.length + ")");
+
+                    for (var i = 0; i < data.length; i++) {
+                        var el = document.createElement("li");
+                        $(el).addClass("mdc-list-item");
+                        $(el).attr("data-mdc-auto-init", "MDCRipple");
+                        $(el).html(
+                            '<span class="mdc-list-item__text"><span class="mdc-list-item__primary-text"></span><a target="_blank" rel="noopener" class="mdc-list-item__secondary-text"></a></span>');
+
+                        $("body > main > ul").append(el);
+                        console.log(data[i].name);
+                        $(".mdc-list-item__primary-text:last").html(data[i].name);
+                        $(".mdc-list-item__secondary-text:last").html(
+                            "https://ros-static.ga/public/" + data[i].name);
+
+                        $(".mdc-list-item__secondary-text:last").attr(
+                            "href",
+                            "https://ros-static.ga/public/" + data[i].name);
+
+                    }
+                })).
+
+        then(function() {
+            window.mdc.autoInit();
+        });
+    </script>
+
+</body>
+
+</html>
