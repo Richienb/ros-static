@@ -10,4 +10,5 @@ before_script:
   - find ci -type f -iname "*.sh" -exec chmod +x {} \;
 
 script:
-  - sudo ./ci/scan.sh static/README.txt
+  - sudo ./ci/scan.sh static
+  - sudo ./ci/scan.sh public
