@@ -2,6 +2,9 @@ sudo: required
 
 language: bash
 
+cache:
+    apt: true
+
 install:
   - sudo apt-get install clamav
   - sudo freshclam
