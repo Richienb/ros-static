@@ -1,0 +1,13 @@
+sudo: required
+
+language: bash
+
+install:
+  - sudo apt-get install clamav
+  - sudo freshclam
+
+before_script:
+  - find ci -type f -iname "*.sh" -exec chmod +x {} \;
+
+script:
+  - sudo ./ci/scan.sh static/README.txt
